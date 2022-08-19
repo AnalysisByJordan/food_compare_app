@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+<head>
+    <meta charset="UTF-8">
+    <title>Apples or Oranges</title>
+</head>
+    <body>
+        <div id = "grid-container">
+            <div id = "grid-nav">
+                <a href="{{ url_for('index') }}" class = "header-text">Home</a>
+                <a href="{{ url_for('about') }}" class = "header-text">About</a>
+            </div>
+            <div class="content">
+                {% for message in get_flashed_messages() %}
+                    <div class="alert">{{ message }}</div>
+                {% endfor %}
+                {% block content %} {% endblock %}
+            </div>
+            <footer>
+                <p>Apples or Oranges &copy; 2022 | Jordan</p>
+            </footer>
+        </div>
+    </body>
+</html>

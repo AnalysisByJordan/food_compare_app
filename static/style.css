@@ -1,0 +1,138 @@
+body {
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+#grid-container { 
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-template-columns: 100%;
+    grid-template-rows: 5% 90% 5%;
+}
+#grid-nav{
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+}
+#grid-nav a {
+    color: white;
+    text-decoration: none;
+    padding-left: 30px;
+}
+.content { 
+    height: 100%;
+}
+form {
+    height: 100%;
+}
+#grid-index{ 
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-template-columns: 20% 30% 30% 20%;
+    grid-template-rows: 33.33% 33.33% 33.33%;
+}
+#food1-side{
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    background-color: rgb(238, 196, 196);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#food2-side{
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    background-color: rgb(189, 189, 236);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.select-food-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#submit-button{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    background-color: rgb(221, 241, 221);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#grid-comparison{
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-template-columns: 20% 30% 30% 20%;
+    grid-template-rows: 10% 40% 10% 40%;
+}
+#compare-title{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 1;
+}
+#food1-box{
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    background-color: rgb(235, 168, 168);
+
+}
+#food2-box{
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    background-color: rgb(183, 193, 226);
+
+}
+#food1-nutrients{
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 4;
+    grid-row-end: 4;
+}
+#food2-nutrients{
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 4;
+}
+#compare-submit{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 3;
+}
+ footer {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    background-color: #333;
+    color: white;
+    text-align: center;
+  }

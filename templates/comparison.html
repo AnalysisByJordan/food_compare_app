@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form action="{{url_for('comparison')}}" method="post">
+        <div id = "grid-comparison">
+            <h1 id = "compare-title">Comparing {{food1}} and {{food2}}.</h1>
+            <div id = "food1-box">
+                <select name = "food1_select" required>
+                    {%for option in food1_list%}
+                        {% if option['id'] == food1_id %}
+                        <option value = "{{option['id']}}" selected >{{option['name']}}</option>
+                        {% else %}
+                        <option value = "{{option['id']}}">{{option['name']}}</option>
+                        {% endif %}
+                    {%endfor%}
+                </select>
+            </div>
+            <div id = "food2-box">
+                <select name = "food2_select">
+                    {%for option in food2_list%}
+                        {% if option['id'] == food2_id %}
+                        <option value = "{{option['id']}}" selected >{{option['name']}}</option>
+                        {% else %}
+                        <option value = "{{option['id']}}">{{option['name']}}</option>
+                        {% endif %}
+                    {%endfor%}
+                </select>
+            </div>
+            <div id = "compare-submit">
+                <button type="submit">Go</button>
+            </div>
+            <p id = "food1-nutrients">{{food1_nutrients}}</p>
+            <p id = "food2-nutrients">{{food2_nutrients}}</p>
+        </div>
+    </form>
+{% endblock %}

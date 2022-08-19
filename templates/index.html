@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form action="{{ url_for('comparison') }}" method="post">
+        <div id = "grid-index">
+            <div id = "food1-side">
+                <div class = "select-food-div">
+                    <label>Select First Food</label>
+                    <input type="text" name="food1" placeholder = "Apple" value = "{{food1}}">
+                </div>
+            </div>
+            <div id = "food2-side">
+                <div class = "select-food-div">
+                    <label>Select Second Food</label>
+                    <input type="text" name="food2" placeholder = "Orange" value = "{{food2}}">
+                </div>
+            </div>
+            <div id = "submit-button">
+                <input type="submit">
+            </div>    
+        </div>
+    </form>
+{% endblock %}
