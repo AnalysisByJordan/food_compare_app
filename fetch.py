@@ -1,22 +1,29 @@
 import requests
 
-api_key = 'OdWJF6TM0dfnoMEpY7lgQ97bHhSZYKr9dPTvqO8i'
+api_key = '3jlHjrM7qk0ISSO74FYkmljRTKT2BshJSM2dCZkd'
+datatype = 'Survey (FNDDS)'
 
 #Pulls all data relating to a food item search
 def get_foods(search_term):
     r = requests.get(
-        f'https://api.nal.usda.gov/fdc/v1/foods/search?query={search_term}&pageSize=200&&api_key={api_key}'
+        f'https://api.nal.usda.gov/fdc/v1/foods/search?query={search_term}&dataType={datatype}&requireAllWords=true&pageSize=211&api_key={api_key}'
     )
-    term_dict = r.json()
-    return term_dict
+    foods_dict = r.json()
+    return foods_dict['foods']
 
 #Pulls the list of all foods + id's that were returned in the get_foods function
 def get_food_list(food_dict):
-    return [{'name': food['description'], 'id': int(food['fdcId'])} for food in food_dict['foods']]
+    foods_with_brand = []
+    for food in food_dict:
+        if food['additionalDescriptions'] is not "":
+            foods_with_brand.append({'name': food['description'], 'description': ' | ' + food['additionalDescriptions'], 'id': food['fdcId']})
+        else:
+            foods_with_brand.append({'name': food['description'], 'description': '', 'id': food['fdcId']})
+    return foods_with_brand #[{'name': food['description'], 'id': int(food['fdcId'])} for food in food_dict]
 
 #Gets the food name from the food id
 def get_food_name(food_dict, id):
-    for food in food_dict['foods']:
+    for food in food_dict:
         try:
             if food['fdcId'] == int(id):
                 name = food['description']
@@ -26,11 +33,19 @@ def get_food_name(food_dict, id):
 
 #Gets the nutrients needed to display for a selected food id
 def get_food_nutrients(food_dict, id):
-    key_nutrients= ['Sodium, Na', 'Vitamin C, total ascorbic acid', 'Cholesterol']
+    key_nutrients= [{'name': 'Energy', 'dv': 1}, {'name': 'Protein', 'dv': 51},{'name': 'Total lipid (fat)', 'dv': 78}, {'name': 'Fiber, total dietary', 'dv': 28}, 
+    {'name': 'Carbohydrate, by difference', 'dv': 275}, {'name': 'Sugars, total including NLEA', 'dv': 1}, {'name': 'Cholesterol', 'dv': 311},
+    {'name': 'Fatty acids, total saturated', 'dv': 21}, {'name': 'Fatty acids, total trans', 'dv': 1}, {'name': 'Sodium, Na', 'dv': 2311}, {'name': 'Vitamin C, total ascorbic acid', 'dv': 1}, 
+    {'name': 'Vitamin A, RAE', 'dv': 1}, {'name':'Vitamin D (D2 + D3)', 'dv': 1}, {'name':'Vitamin E (alpha-tocopherol)', 'dv': 1}, {'name':'Calcium, Ca', 'dv': 1}, {'name':'Iron, Fe', 'dv': 1}, 
+    {'name':'Potassium, K', 'dv': 1}, {'name':'Folate, total', 'dv': 1}]
     nutrient_profile = {}
-    for food in food_dict['foods']:
+    for food in food_dict:
         if food['fdcId'] == int(id):
-            for nutrient in food['foodNutrients']:
-                if nutrient['nutrientName'] in key_nutrients:
-                    nutrient_profile[nutrient['nutrientName']] = {'value': nutrient['value'], 'unitName': nutrient['unitName']}
+            nutrient_profile['foodCategory'] = food['foodCategory']
+            for nutrient in key_nutrients:
+                nutrient_profile[nutrient['name']] = {'value': 0, 'unitName': 'g', 'percentage': 1}    
+                for nutr in food['foodNutrients']:
+                    if nutr['nutrientName'] == nutrient['name']:
+                        nutrient_profile[nutrient['name']] = {'value': nutr['value'], 'unitName': nutr['unitName'].lower(), 'percentage': int((nutr['value'] / nutrient['dv'])*100)}           
+            nutrient_profile['calories from fat'] =  int(nutrient_profile['Total lipid (fat)']['value'] * 9)
     return nutrient_profile

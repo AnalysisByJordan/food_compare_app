@@ -3,20 +3,24 @@
 {% block content %}
     <form action="{{ url_for('comparison') }}" method="post">
         <div id = "grid-index">
+            <div id = "title-div">
+                <h1 id = "index-title">Apples or Oranges</h1>
+                <p>Type in 2 foods that you would like to compare, then press the 'Submit' button.</p>
+            </div>
             <div id = "food1-side">
                 <div class = "select-food-div">
-                    <label>Select First Food</label>
-                    <input type="text" name="food1" placeholder = "Apple" value = "{{food1}}">
+                    <!-- <label class = "food-select-label">Select First Food</label> -->
+                    <input class = "food-select-input" type="text" name="food1" placeholder = "Type in a food A.." value = "{{food1}}">
                 </div>
             </div>
             <div id = "food2-side">
                 <div class = "select-food-div">
-                    <label>Select Second Food</label>
-                    <input type="text" name="food2" placeholder = "Orange" value = "{{food2}}">
+                    <!-- <label class = "food-select-label">Select Second Food</label> -->
+                    <input class = "food-select-input" type="text" name="food2" placeholder = "Type in a food B.." value = "{{food2}}">
                 </div>
             </div>
-            <div id = "submit-button">
-                <input type="submit">
+            <div id = "submit-div">
+                <input class = "submit-button" type="submit">
             </div>    
         </div>
     </form>

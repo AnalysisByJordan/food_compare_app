@@ -11,14 +11,13 @@ app.config['SECRET_KEY'] = '81565977645e6138e56f590d1213b437537f9ebaa171e8f6'
 @app.route('/')
 def index():
    session['reload_flag'] = False
-   logging.info(f"session['food1'] = {session['food1']}")
-   if session['food1']:
-      food1 = session['food1']
-   else:
+   try:
+      if session['food1']:
+         food1 = session['food1']
+      if session['food2']:
+         food2 = session['food2']
+   except:
       food1 = ''
-   if session['food2']:
-      food2 = session['food2']
-   else:
       food2 = ''
    return render_template('index.html', food1=food1, food2=food2)
 
@@ -41,7 +40,9 @@ def comparison():
       food1_list = get_food_list(food1_dict)
       food2_list = get_food_list(food2_dict)
       if not (request.form.get('food1_select') and request.form.get('food1_select')):
-         food1_nutrients = food2_nutrients = 'Please select a specific food then hit "Go"'
+         logging.info(f"Setting reload_flag to True")
+         food1_nutrients = get_food_nutrients(food1_dict, get_food_list(food1_dict)[0]['id'])
+         food2_nutrients = get_food_nutrients(food2_dict, get_food_list(food2_dict)[0]['id'])
          food1_id = food2_id = None
          session['reload_flag'] = True
       if request.form.get('food1_select'):
@@ -50,7 +51,7 @@ def comparison():
          food2_nutrients = get_food_nutrients(food2_dict, request.form.get('food2_select'))
          food1_id = int(request.form.get('food1_select'))
          food2_id = int(request.form.get('food2_select'))
-         logging.info(f"food1_id = {food1_id}, food2_id = {food2_id}")
+         logging.info(f"food1_nutrients: {food1_nutrients}")
    return render_template('comparison.html', food1 = session['food1'], food2 = session['food2'], food1_list = food1_list, food2_list = food2_list, \
    food1_nutrients=food1_nutrients, food2_nutrients=food2_nutrients, food1_id = food1_id, food2_id = food2_id)
 

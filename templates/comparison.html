@@ -5,32 +5,305 @@
         <div id = "grid-comparison">
             <h1 id = "compare-title">Comparing {{food1}} and {{food2}}.</h1>
             <div id = "food1-box">
-                <select name = "food1_select" required>
+                <select class = "select-box" name = "food1_select">
                     {%for option in food1_list%}
                         {% if option['id'] == food1_id %}
-                        <option value = "{{option['id']}}" selected >{{option['name']}}</option>
+                        <option value = "{{option['id']}}" selected >{{option['name'] + option['description']}}</otion>
                         {% else %}
-                        <option value = "{{option['id']}}">{{option['name']}}</option>
+                        <option value = "{{option['id']}}">{{option['name'] + option['description']}}</option>
                         {% endif %}
                     {%endfor%}
                 </select>
+                <p>{{food1_nutrients['foodCategory']}}</p>
             </div>
             <div id = "food2-box">
-                <select name = "food2_select">
+                <select class = "select-box" name = "food2_select">
                     {%for option in food2_list%}
                         {% if option['id'] == food2_id %}
-                        <option value = "{{option['id']}}" selected >{{option['name']}}</option>
+                        <option value = "{{option['id']}}" selected >{{option['name'] + option['description']}}</option>
                         {% else %}
-                        <option value = "{{option['id']}}">{{option['name']}}</option>
+                        <option value = "{{option['id']}}">{{option['name'] + option['description']}}</option>
                         {% endif %}
                     {%endfor%}
                 </select>
+                <p>{{food2_nutrients['foodCategory']}}</p>
             </div>
             <div id = "compare-submit">
-                <button type="submit">Go</button>
+                <button id = "compare-button" type="submit">Go</button>
             </div>
-            <p id = "food1-nutrients">{{food1_nutrients}}</p>
-            <p id = "food2-nutrients">{{food2_nutrients}}</p>
+            <div id = "food1-nutrients">
+                <div id="nutritionfacts">
+                    <table width="242" cellspacing="0" cellpadding="0">
+                        <tbody><tr>
+                            <td align="center" class="header">Nutrition Facts</td>
+                        </tr>
+                        <tr>
+                            <td><div class="serving">Per <span class="highlighted">100g</span> Serving Size</div></td>
+                        </tr>
+                        <tr style="height: 7px">
+                            <td bgcolor="#000000"></td>
+                        </tr>
+                        <tr>
+                            <td style="font-size: 7pt"><div class="line">Amount Per Serving</div></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="line">
+                                <div class="label">Calories <div class="weight">{{food1_nutrients['Energy']['value']}}{{food1_nutrients['Energy']['unitName']}}</div></div><div style="padding-top: 1px; float: right;" class="labellight">Calories from Fat <div class="weight">{{food1_nutrients['calories from fat']}}</div></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><div class="line"><div class="dvlabel">% Daily Value<sup>*</sup></div></div></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="line">
+                                <div class="label">Total Fat <div class="weight">{{food1_nutrients['Total lipid (fat)']['value']}}{{food1_nutrients['Total lipid (fat)']['unitName']}}</div></div>
+                                <div class="dv">{{food1_nutrients['Total lipid (fat)']['percentage']}}%</div>
+                                </div>
+                            </td>
+                        </tr>
+                                    <tr>
+                            <td class="indent">
+                                <div class="line">
+                                <div class="labellight">Saturated Fat <div class="weight">{{food1_nutrients['Fatty acids, total saturated']['value']}}{{food1_nutrients['Fatty acids, total saturated']['unitName']}}</div></div>
+                                <div class="dv">{{food1_nutrients['Fatty acids, total saturated']['percentage']}}%</div>
+                                </div>
+                            </td>
+                        </tr>
+                                    <tr>
+                            <td class="indent">
+                                <div class="line">
+                                <div class="labellight"><i>Trans</i> Fat <div class="weight">{{food1_nutrients['Fatty acids, total trans']['value']}}{{food1_nutrients['Fatty acids, total trans']['unitName']}}</div></div>
+                                </div>
+                            </td>
+                        </tr>
+                                    <tr>
+                            <td>
+                                <div class="line">
+                                <div class="label">Cholesterol <div class="weight">{{food1_nutrients['Cholesterol']['value']}}{{food1_nutrients['Cholesterol']['unitName']}}</div></div>
+                                <div class="dv">{{food1_nutrients['Cholesterol']['percentage']}}%</div>
+                                </div>
+                            </td>
+                        </tr>
+                                    <tr>
+                            <td>
+                                <div class="line">
+                                <div class="label">Sodium <div class="weight">{{food1_nutrients['Sodium, Na']['value']}}{{food1_nutrients['Sodium, Na']['unitName']}}</div></div>
+                                <div class="dv">{{food1_nutrients['Sodium, Na']['percentage']}}%</div>
+                                </div>
+                            </td>
+                        </tr>
+                                    <tr>
+                            <td>
+                                <div class="line">
+                                <div class="label">Total Carbohydrates <div class="weight">{{food1_nutrients['Carbohydrate, by difference']['value']}}{{food1_nutrients['Carbohydrate, by difference']['unitName']}}</div></div>
+                                <div class="dv">{{food1_nutrients['Carbohydrate, by difference']['percentage']}}%</div>
+                                </div>
+                            </td>
+                        </tr>
+                                    <tr>
+                            <td class="indent">
+                                <div class="line">
+                                <div class="labellight">Dietary Fiber <div class="weight">{{food1_nutrients['Fiber, total dietary']['value']}}{{food1_nutrients['Fiber, total dietary']['unitName']}}</div></div>
+                                <div class="dv">{{food1_nutrients['Fiber, total dietary']['percentage']}}%</div>
+                            </div></td>
+                        </tr>
+                                    <tr>
+                            <td class="indent">
+                                <div class="line">
+                                <div class="labellight">Sugars <div class="weight">{{food1_nutrients['Sugars, total including NLEA']['value']}}{{food1_nutrients['Sugars, total including NLEA']['unitName']}}</div></div>
+                                </div>
+                            </td>
+                        </tr>
+                                    <tr>
+                            <td>
+                                <div class="line">
+                                <div class="label">Protein <div class="weight">{{food1_nutrients['Protein']['value']}}{{food1_nutrients['Protein']['unitName']}}</div></div>
+                                <div class="dv">{{food1_nutrients['Protein']['percentage']}}%</div>
+                                </div>
+                            </div></td>
+                        </tr>
+                        <tr style="height: 7px">
+                            <td bgcolor="#000000"></td>
+                        </tr>
+                                    <tr>
+                            <td>
+                                <table cellspacing="0" cellpadding="0" border="0" class="vitamins">
+                                <tbody>
+                                <tr>
+                                    <td>Vitamin A &nbsp;&nbsp; {{food1_nutrients['Vitamin A, RAE']['value']}}{{food1_nutrients['Vitamin A, RAE']['unitName']}}</td>
+                                    <td align="center">•</td>
+                                    <td align="right">Calcium &nbsp;&nbsp; {{food1_nutrients['Calcium, Ca']['value']}}{{food1_nutrients['Calcium, Ca']['unitName']}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Vitamin E &nbsp;&nbsp; {{food1_nutrients['Vitamin E (alpha-tocopherol)']['value']}}{{food1_nutrients['Vitamin E (alpha-tocopherol)']['unitName']}}</td>
+                                    <td align="center">•</td>
+                                    <td align="right">Iron &nbsp;&nbsp; {{food1_nutrients['Iron, Fe']['value']}}{{food1_nutrients['Iron, Fe']['unitName']}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Vitamin C &nbsp;&nbsp; {{food1_nutrients['Vitamin C, total ascorbic acid']['value']}}{{food1_nutrients['Vitamin C, total ascorbic acid']['unitName']}}</td>
+                                    <td align="center">•</td>
+                                    <td align="right">Potassium &nbsp;&nbsp; {{food1_nutrients['Potassium, K']['value']}}{{food1_nutrients['Potassium, K']['unitName']}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Vitamin D &nbsp;&nbsp; {{food1_nutrients['Vitamin D (D2 + D3)']['value']}}{{food1_nutrients['Vitamin D (D2 + D3)']['unitName']}}</td>
+                                    <td align="center">•</td>
+                                    <td align="right">Folate &nbsp;&nbsp; {{food1_nutrients['Folate, total']['value']}}{{food1_nutrients['Folate, total']['unitName']}}</td>
+                                </tr>                        
+                                </tbody></table>
+                            </td>
+                        </tr>
+                                    <tr>
+                            <td><div class="line">
+                            <div class="labellight">* Based on a regular <a href="#">2000 calorie diet</a>
+                            <br><br><i>Nutritional details are an estimate and should only be used as a guide for approximation.</i>
+                            </div>
+                            </div>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </div>
+            </div>
+            <div id = "food2-nutrients">
+                <div id="nutritionfacts">
+                    <table width="242" cellspacing="0" cellpadding="0">
+                        <tbody><tr>
+                            <td align="center" class="header">Nutrition Facts</td>
+                        </tr>
+                        <tr>
+                            <td><div class="serving">Per <span class="highlighted">100g</span> Serving Size</div></td>
+                        </tr>
+                        <tr style="height: 7px">
+                            <td bgcolor="#000000"></td>
+                        </tr>
+                        <tr>
+                            <td style="font-size: 7pt"><div class="line">Amount Per Serving</div></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="line">
+                                <div class="label">Calories <div class="weight">{{food2_nutrients['Energy']['value']}}{{food2_nutrients['Energy']['unitName']}}</div></div><div style="padding-top: 1px; float: right;" class="labellight">Calories from Fat <div class="weight">{{food2_nutrients['calories from fat']}}</div></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><div class="line"><div class="dvlabel">% Daily Value<sup>*</sup></div></div></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="line">
+                                <div class="label">Total Fat <div class="weight">{{food2_nutrients['Total lipid (fat)']['value']}}{{food2_nutrients['Total lipid (fat)']['unitName']}}</div></div>
+                                <div class="dv">{{food2_nutrients['Total lipid (fat)']['percentage']}}%</div>
+                                </div>
+                            </td>
+                        </tr>
+                                    <tr>
+                            <td class="indent">
+                                <div class="line">
+                                <div class="labellight">Saturated Fat <div class="weight">{{food2_nutrients['Fatty acids, total saturated']['value']}}{{food2_nutrients['Fatty acids, total saturated']['unitName']}}</div></div>
+                                <div class="dv">{{food2_nutrients['Fatty acids, total saturated']['percentage']}}%</div>
+                                </div>
+                            </td>
+                        </tr>
+                                    <tr>
+                            <td class="indent">
+                                <div class="line">
+                                <div class="labellight"><i>Trans</i> Fat <div class="weight">{{food2_nutrients['Fatty acids, total trans']['value']}}{{food2_nutrients['Fatty acids, total trans']['unitName']}}</div></div>
+                                </div>
+                            </td>
+                        </tr>
+                                    <tr>
+                            <td>
+                                <div class="line">
+                                <div class="label">Cholesterol <div class="weight">{{food2_nutrients['Cholesterol']['value']}}{{food2_nutrients['Cholesterol']['unitName']}}</div></div>
+                                <div class="dv">{{food2_nutrients['Cholesterol']['percentage']}}%</div>
+                                </div>
+                            </td>
+                        </tr>
+                                    <tr>
+                            <td>
+                                <div class="line">
+                                <div class="label">Sodium <div class="weight">{{food2_nutrients['Sodium, Na']['value']}}{{food2_nutrients['Sodium, Na']['unitName']}}</div></div>
+                                <div class="dv">{{food2_nutrients['Sodium, Na']['percentage']}}%</div>
+                                </div>
+                            </td>
+                        </tr>
+                                    <tr>
+                            <td>
+                                <div class="line">
+                                <div class="label">Total Carbohydrates <div class="weight">{{food2_nutrients['Carbohydrate, by difference']['value']}}{{food2_nutrients['Carbohydrate, by difference']['unitName']}}</div></div>
+                                <div class="dv">{{food2_nutrients['Carbohydrate, by difference']['percentage']}}%</div>
+                                </div>
+                            </td>
+                        </tr>
+                                    <tr>
+                            <td class="indent">
+                                <div class="line">
+                                <div class="labellight">Dietary Fiber <div class="weight">{{food2_nutrients['Fiber, total dietary']['value']}}{{food2_nutrients['Fiber, total dietary']['unitName']}}</div></div>
+                                <div class="dv">{{food2_nutrients['Fiber, total dietary']['percentage']}}%</div>
+                            </div></td>
+                        </tr>
+                                    <tr>
+                            <td class="indent">
+                                <div class="line">
+                                <div class="labellight">Sugars <div class="weight">{{food2_nutrients['Sugars, total including NLEA']['value']}}{{food2_nutrients['Sugars, total including NLEA']['unitName']}}</div></div>
+                                </div>
+                            </td>
+                        </tr>
+                                    <tr>
+                            <td>
+                                <div class="line">
+                                <div class="label">Protein <div class="weight">{{food2_nutrients['Protein']['value']}}{{food2_nutrients['Protein']['unitName']}}</div></div>
+                                <div class="dv">{{food2_nutrients['Protein']['percentage']}}%</div>
+                                </div>
+                            </div></td>
+                        </tr>
+                        <tr style="height: 7px">
+                            <td bgcolor="#000000"></td>
+                        </tr>
+                                    <tr>
+                            <td>
+                                <table cellspacing="0" cellpadding="0" border="0" class="vitamins">
+                                <tbody>
+                                <tr>
+                                    <td>Vitamin A &nbsp;&nbsp; {{food2_nutrients['Vitamin A, RAE']['value']}}{{food2_nutrients['Vitamin A, RAE']['unitName']}}</td>
+                                    <td align="center">•</td>
+                                    <td align="right">Calcium &nbsp;&nbsp; {{food2_nutrients['Calcium, Ca']['value']}}{{food2_nutrients['Calcium, Ca']['unitName']}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Vitamin E &nbsp;&nbsp; {{food2_nutrients['Vitamin E (alpha-tocopherol)']['value']}}{{food2_nutrients['Vitamin E (alpha-tocopherol)']['unitName']}}</td>
+                                    <td align="center">•</td>
+                                    <td align="right">Iron &nbsp;&nbsp; {{food2_nutrients['Iron, Fe']['value']}}{{food2_nutrients['Iron, Fe']['unitName']}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Vitamin C &nbsp;&nbsp; {{food2_nutrients['Vitamin C, total ascorbic acid']['value']}}{{food2_nutrients['Vitamin C, total ascorbic acid']['unitName']}}</td>
+                                    <td align="center">•</td>
+                                    <td align="right">Potassium &nbsp;&nbsp; {{food2_nutrients['Potassium, K']['value']}}{{food2_nutrients['Potassium, K']['unitName']}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Vitamin D &nbsp;&nbsp; {{food2_nutrients['Vitamin D (D2 + D3)']['value']}}{{food2_nutrients['Vitamin D (D2 + D3)']['unitName']}}</td>
+                                    <td align="center">•</td>
+                                    <td align="right">Folate &nbsp;&nbsp; {{food2_nutrients['Folate, total']['value']}}{{food2_nutrients['Folate, total']['unitName']}}</td>
+                                </tr>                        
+                                </tbody></table>
+                            </td>
+                        </tr>
+                                    <tr>
+                            <td><div class="line">
+                            <div class="labellight">* Based on a regular <a href="#">2000 calorie diet</a>
+                            <br><br><i>Nutritional details are an estimate and should only be used as a guide for approximation.</i>
+                            </div>
+                            </div>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </div>   
+            </div>     
+            <!--<p id = "food1-nutrients">{{food1_nutrients}}</p>
+            <p id = "food2-nutrients">{{food2_nutrients}}</p>-->
+                  
         </div>
     </form>
 {% endblock %}

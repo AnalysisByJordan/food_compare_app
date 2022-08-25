@@ -1,8 +1,10 @@
+
 body {
     height: 100vh;
     width: 100vw;
     overflow-x: hidden;
     overflow-y: hidden;
+    font-family: 'Montserrat', serif;
 }
 #grid-container { 
     position: fixed;
@@ -28,11 +30,32 @@ body {
     text-decoration: none;
     padding-left: 30px;
 }
+
+#grid-nav a:hover{
+    color: rgb(240, 142, 62);
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
 .content { 
     height: 100%;
 }
 form {
     height: 100%;
+}
+#title-div{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+#index-title{
+    font-size: 5rem;
+    color: rgb(93, 134, 83);
 }
 #grid-index{ 
     display: grid;
@@ -46,19 +69,24 @@ form {
     grid-column-end: 2;
     grid-row-start: 2;
     grid-row-end: 2;
-    background-color: rgb(238, 196, 196);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-
+.food-select-label {
+    font-size: 50px;
+}
+.food-select-input{
+    width: 100%;
+    font-size: 150%;
+    margin-bottom: 30%;
+}
 #food2-side{
     grid-column-start: 3;
     grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 2;
-    background-color: rgb(189, 189, 236);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -69,64 +97,157 @@ form {
     justify-content: center;
     align-items: center;
 }
-#submit-button{
+#submit-div{
     grid-column-start: 2;
     grid-column-end: 4;
     grid-row-start: 3;
     grid-row-end: 3;
-    background-color: rgb(221, 241, 221);
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
+.submit-button{
+    background-color: #333;;
+    color: rgb(224, 213, 213);
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    margin-bottom: 30%;
+}
+.submit-button:hover {
+    background-color: rgb(240, 142, 62);
+    color: white;
+  }
 #grid-comparison{
     display: grid;
     height: 100%;
     width: 100%;
-    grid-template-columns: 20% 30% 30% 20%;
-    grid-template-rows: 10% 40% 10% 40%;
+    grid-template-columns: 10% 40% 40% 10%;
+    grid-template-rows: 10% 35% 10% 35% 10%;
 }
 #compare-title{
     grid-column-start: 2;
-    grid-column-end: 3;
+    grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: 1;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 #food1-box{
     grid-column-start: 2;
     grid-column-end: 2;
     grid-row-start: 2;
     grid-row-end: 2;
-    background-color: rgb(235, 168, 168);
-
 }
 #food2-box{
     grid-column-start: 3;
     grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 2;
-    background-color: rgb(183, 193, 226);
-
+}
+.select-box {
+    width: 100%;
 }
 #food1-nutrients{
     grid-column-start: 2;
     grid-column-end: 2;
     grid-row-start: 4;
     grid-row-end: 4;
+    display: flex;
+    justify-content: center;
 }
 #food2-nutrients{
     grid-column-start: 3;
     grid-column-end: 3;
     grid-row-start: 4;
     grid-row-end: 4;
+    display: flex;
+    justify-content: center;
 }
 #compare-submit{
     grid-column-start: 2;
     grid-column-end: 4;
     grid-row-start: 3;
     grid-row-end: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+#compare-button{
+    background-color: #333;;
+    color: rgb(224, 213, 213);
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+#compare-button:hover {
+    background-color: rgb(240, 142, 62);
+    color: white;
+  }
+
+#nutritionfacts { 
+    background-color:white; 
+    border:1px solid black; 
+    padding:3px; width:244px; 
+}
+#nutritionfacts td { 
+    color:black; 
+    font-family:'Arial Black','Helvetica Bold',sans-serif; 
+    font-size:8pt; 
+    padding:0; 
+}
+#nutritionfacts td.header { 
+    font-family:'Arial Black','Helvetica Bold',sans-serif; 
+    font-size:28px; 
+    white-space:nowrap; 
+}        
+#nutritionfacts div.label { 
+    float:left; 
+    font-family:'Arial Black','Helvetica Bold',sans-serif; 
+}
+#nutritionfacts div.serving { 
+    font-family:Arial,Helvetica,sans-serif; 
+    font-size:8pt; 
+    text-align:center; 
+}
+#nutritionfacts div.weight { 
+    display:inline; 
+    font-family:Arial,Helvetica,sans-serif; 
+    padding-left:1px; 
+}
+#nutritionfacts div.dv { 
+    display:inline; 
+    float:right; 
+    font-family:'Arial Black','Helvetica Bold',sans-serif; 
+}
+#nutritionfacts table.vitamins td {  
+    font-family:Arial,Helvetica,sans-serif; 
+    white-space:nowrap; 
+    width:33%; 
+}
+#nutritionfacts div.line { 
+    border-top:1px solid black; 
+}
+#nutritionfacts div.labellight { 
+    float:left; 
+    font-family:Arial,Helvetica,sans-serif; 
+}
+#nutritionfacts .highlighted {
+    border:1px dotted grey;
+    padding:2px;
+}
+
  footer {
     grid-column-start: 1;
     grid-column-end: 1;
