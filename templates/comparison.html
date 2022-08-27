@@ -3,7 +3,10 @@
 {% block content %}
     <form action="{{url_for('comparison')}}" method="post">
         <div id = "grid-comparison">
-            <h1 id = "compare-title">Comparing {{food1}} and {{food2}}.</h1>
+            <div id = "compare-title">
+                <h1>Comparing '{{food1}}' and '{{food2}}'.</h1>
+                <p class = "directions">Select the specific foods you want to compare from the dropdown menus, based on your search.</p>
+            </div>
             <div id = "food1-box">
                 <select class = "select-box" name = "food1_select">
                     {%for option in food1_list%}
@@ -14,7 +17,6 @@
                         {% endif %}
                     {%endfor%}
                 </select>
-                <p>{{food1_nutrients['foodCategory']}}</p>
             </div>
             <div id = "food2-box">
                 <select class = "select-box" name = "food2_select">
@@ -26,7 +28,6 @@
                         {% endif %}
                     {%endfor%}
                 </select>
-                <p>{{food2_nutrients['foodCategory']}}</p>
             </div>
             <div id = "compare-submit">
                 <button id = "compare-button" type="submit">Go</button>

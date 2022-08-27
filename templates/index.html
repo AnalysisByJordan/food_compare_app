@@ -4,19 +4,17 @@
     <form action="{{ url_for('comparison') }}" method="post">
         <div id = "grid-index">
             <div id = "title-div">
-                <h1 id = "index-title">Apples or Oranges</h1>
-                <p>Type in 2 foods that you would like to compare, then press the 'Submit' button.</p>
+                <h1 id = "index-title">Apples or Oranges.</h1>
+                <p class = "directions">Type in 2 foods that you would like to compare, then press the 'Submit' button.</p>
             </div>
             <div id = "food1-side">
                 <div class = "select-food-div">
-                    <!-- <label class = "food-select-label">Select First Food</label> -->
-                    <input class = "food-select-input" type="text" name="food1" placeholder = "Type in a food A.." value = "{{food1}}">
+                    <input class = "food-select-input" type="text" name="food1" placeholder = "Type in Food A..." value = "{{food1}}">
                 </div>
             </div>
             <div id = "food2-side">
                 <div class = "select-food-div">
-                    <!-- <label class = "food-select-label">Select Second Food</label> -->
-                    <input class = "food-select-input" type="text" name="food2" placeholder = "Type in a food B.." value = "{{food2}}">
+                    <input class = "food-select-input" type="text" name="food2" placeholder = "Type in Food B..." value = "{{food2}}">
                 </div>
             </div>
             <div id = "submit-div">

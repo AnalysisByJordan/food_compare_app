@@ -6,6 +6,12 @@ body {
     overflow-y: hidden;
     font-family: 'Montserrat', serif;
 }
+.alert{
+    color: red;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 2rem;
+}
 #grid-container { 
     position: fixed;
     left: 0;
@@ -24,13 +30,30 @@ body {
     background-color: #333;
     display: flex;
     align-items: center;
+    font-size: 1.5rem;
 }
 #grid-nav a {
     color: white;
     text-decoration: none;
     padding-left: 30px;
 }
-
+#about-section{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#about-section h1 {
+    font-size: 3rem;
+}
+#about-section p {
+    font-size: 2rem;
+}
+#about-text{
+    width: 80%;
+    text-align: center;
+}
 #grid-nav a:hover{
     color: rgb(240, 142, 62);
     transition-duration: 0.4s;
@@ -53,9 +76,13 @@ form {
     justify-content: center;
     text-align: center;
 }
-#index-title{
-    font-size: 5rem;
+#title-div h1{
+    font-size: 3rem;
     color: rgb(93, 134, 83);
+}
+#title-div p{
+    font-size: 2rem;
+    color: rgb(240, 142, 62);
 }
 #grid-index{ 
     display: grid;
@@ -74,12 +101,9 @@ form {
     align-items: center;
 }
 
-.food-select-label {
-    font-size: 50px;
-}
 .food-select-input{
     width: 100%;
-    font-size: 150%;
+    font-size: 170%;
     margin-bottom: 30%;
 }
 #food2-side{
@@ -113,11 +137,12 @@ form {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 2rem;
     margin: 4px 2px;
     transition-duration: 0.4s;
     cursor: pointer;
     margin-bottom: 30%;
+    border-radius: 10px;
 }
 .submit-button:hover {
     background-color: rgb(240, 142, 62);
@@ -128,31 +153,47 @@ form {
     height: 100%;
     width: 100%;
     grid-template-columns: 10% 40% 40% 10%;
-    grid-template-rows: 10% 35% 10% 35% 10%;
+    grid-template-rows: 25% 25% 5% 35% 10%;
 }
 #compare-title{
     grid-column-start: 2;
     grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: 1;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+}
+#compare-title h1{
+    font-size: 3rem;
+}
+#compare-title p{
+    font-size: 2rem;
 }
 #food1-box{
     grid-column-start: 2;
     grid-column-end: 2;
     grid-row-start: 2;
     grid-row-end: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #food2-box{
     grid-column-start: 3;
     grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .select-box {
-    width: 100%;
+    width: 80%;
+    height: 10%;
+    font-size: 1.2rem;
 }
 #food1-nutrients{
     grid-column-start: 2;
@@ -248,12 +289,50 @@ form {
     padding:2px;
 }
 
- footer {
+footer {
     grid-column-start: 1;
     grid-column-end: 1;
     grid-row-start: 3;
     grid-row-end: 3;
     background-color: #333;
     color: white;
+    font-size: 1.2rem;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (max-width: 1000px) {
+    #grid-index{ 
+        display: grid;
+        height: 100%;
+        width: 100%;
+        grid-template-columns: 20% 60% 20%;
+        grid-template-rows: 30% 20% 20% 30%;
+    }
+    #title-div{
+        grid-column-start: 2;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+    #food1-side{
+        grid-column-start: 2;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+    #food2-side{
+        grid-column-start: 2;
+        grid-column-end: 2;
+        grid-row-start: 3;
+        grid-row-end: 4;
+    }
+    #submit-div{
+        grid-column-start: 2;
+        grid-column-end: 2;
+        grid-row-start: 4;
+        grid-row-end: 4;
+    }
   }

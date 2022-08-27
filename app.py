@@ -14,8 +14,12 @@ def index():
    try:
       if session['food1']:
          food1 = session['food1']
+      else:
+         food1 = ''
       if session['food2']:
          food2 = session['food2']
+      else:
+         food2 = ''
    except:
       food1 = ''
       food2 = ''
@@ -32,7 +36,7 @@ def comparison():
          session['food1'] = request.form.get('food1')
          session['food2'] = request.form.get('food2')
          if not (request.form.get('food1') and request.form.get('food2')):
-            flash("Please fill in all food fields")
+            flash("Please fill in all food fields.")
             return redirect('/')
       logging.info(f"Loading page with session['reload_flag] = {session['reload_flag']}")
       food1_dict = get_foods(session['food1'])
@@ -45,7 +49,7 @@ def comparison():
          food2_nutrients = get_food_nutrients(food2_dict, get_food_list(food2_dict)[0]['id'])
          food1_id = food2_id = None
          session['reload_flag'] = True
-      if request.form.get('food1_select'):
+      if (request.form.get('food1_select') and request.form.get('food1_select')):
          logging.info(f"Trying to find nutrients for {get_food_name(food1_dict, request.form.get('food1_select'))} - {request.form.get('food1_select')} and {get_food_name(food2_dict, request.form.get('food2_select'))} - {request.form.get('food2_select')}")
          food1_nutrients = get_food_nutrients(food1_dict, request.form.get('food1_select'))
          food2_nutrients = get_food_nutrients(food2_dict, request.form.get('food2_select'))
