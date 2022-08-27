@@ -1,11 +1,14 @@
-from flask import Flask, render_template, request, flash, url_for, redirect, session
+from flask import Flask, render_template, request, flash, redirect, session
 from fetch import get_foods, get_food_list, get_food_nutrients, get_food_name
 import logging
+import os
+from dotenv import load_dotenv
 
 logging.basicConfig(filename='app.log', level=logging.DEBUG, format='%(asctime)s:%(levelname)s:%(message)s')
+load_dotenv()
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '81565977645e6138e56f590d1213b437537f9ebaa171e8f6'
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 
 
 @app.route('/')
