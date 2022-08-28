@@ -8,6 +8,7 @@ logging.basicConfig(filename='app.log', level=logging.DEBUG, format='%(asctime)s
 load_dotenv()
 
 app = Flask(__name__)
+server = app.server
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 
 
