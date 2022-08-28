@@ -62,5 +62,5 @@ def comparison():
    return render_template('comparison.html', food1 = session['food1'], food2 = session['food2'], food1_list = food1_list, food2_list = food2_list, \
    food1_nutrients=food1_nutrients, food2_nutrients=food2_nutrients, food1_id = food1_id, food2_id = food2_id)
 
-if __name__ == '__main__':
-   app.run()
+# if __name__ == '__main__':
+#    app.run()
