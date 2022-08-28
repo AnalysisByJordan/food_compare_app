@@ -18,7 +18,7 @@ def get_foods(search_term):
 def get_food_list(food_dict):
     foods_with_brand = []
     for food in food_dict:
-        if food['additionalDescriptions'] is not "":
+        if food['additionalDescriptions'] != "":
             foods_with_brand.append({'name': food['description'], 'description': ' | ' + food['additionalDescriptions'].split(';')[0], 'id': food['fdcId']})
         else:
             foods_with_brand.append({'name': food['description'], 'description': '', 'id': food['fdcId']})
