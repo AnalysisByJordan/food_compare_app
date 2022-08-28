@@ -41,24 +41,24 @@ def comparison():
          if not (request.form.get('food1') and request.form.get('food2')):
             flash("Please fill in all food fields.")
             return redirect('/')
-      logging.info(f"Loading page with session['reload_flag] = {session['reload_flag']}")
+      #logging.info(f"Loading page with session['reload_flag] = {session['reload_flag']}")
       food1_dict = get_foods(session['food1'])
       food2_dict = get_foods(session['food2'])
       food1_list = get_food_list(food1_dict)
       food2_list = get_food_list(food2_dict)
       if not (request.form.get('food1_select') and request.form.get('food1_select')):
-         logging.info(f"Setting reload_flag to True")
+         #logging.info(f"Setting reload_flag to True")
          food1_nutrients = get_food_nutrients(food1_dict, get_food_list(food1_dict)[0]['id'])
          food2_nutrients = get_food_nutrients(food2_dict, get_food_list(food2_dict)[0]['id'])
          food1_id = food2_id = None
          session['reload_flag'] = True
       if (request.form.get('food1_select') and request.form.get('food1_select')):
-         logging.info(f"Trying to find nutrients for {get_food_name(food1_dict, request.form.get('food1_select'))} - {request.form.get('food1_select')} and {get_food_name(food2_dict, request.form.get('food2_select'))} - {request.form.get('food2_select')}")
+         #logging.info(f"Trying to find nutrients for {get_food_name(food1_dict, request.form.get('food1_select'))} - {request.form.get('food1_select')} and {get_food_name(food2_dict, request.form.get('food2_select'))} - {request.form.get('food2_select')}")
          food1_nutrients = get_food_nutrients(food1_dict, request.form.get('food1_select'))
          food2_nutrients = get_food_nutrients(food2_dict, request.form.get('food2_select'))
          food1_id = int(request.form.get('food1_select'))
          food2_id = int(request.form.get('food2_select'))
-         logging.info(f"food1_nutrients: {food1_nutrients}")
+         #logging.info(f"food1_nutrients: {food1_nutrients}")
    return render_template('comparison.html', food1 = session['food1'], food2 = session['food2'], food1_list = food1_list, food2_list = food2_list, \
    food1_nutrients=food1_nutrients, food2_nutrients=food2_nutrients, food1_id = food1_id, food2_id = food2_id)
 
