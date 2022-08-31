@@ -48,7 +48,7 @@ body {
     font-size: 3rem;
 }
 #about-section p {
-    font-size: 2rem;
+    font-size: 1.7rem;
 }
 #about-text{
     width: 80%;
@@ -81,7 +81,7 @@ form {
     color: rgb(93, 134, 83);
 }
 #title-div p{
-    font-size: 2rem;
+    font-size: 1.7rem;
     color: rgb(240, 142, 62);
 }
 #grid-index{ 
@@ -133,15 +133,14 @@ form {
 .submit-button{
     background-color: #333;;
     color: rgb(224, 213, 213);
-    padding: 16px 32px;
+    padding: 10px 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin: 4px 2px;
     transition-duration: 0.4s;
     cursor: pointer;
-    margin-bottom: 30%;
     border-radius: 10px;
 }
 .submit-button:hover {
@@ -162,12 +161,11 @@ form {
     grid-row-end: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     text-align: center;
 }
 #compare-title h1{
-    font-size: 3rem;
+    font-size: 2.7rem;
+    color: rgb(240, 142, 62);
 }
 #compare-title p{
     font-size: 2rem;

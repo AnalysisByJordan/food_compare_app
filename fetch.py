@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()
-api_key = os.getenv('API_KEY')
+api_key = os.environ.get('API_KEY')
 datatype = 'Survey (FNDDS)'
 
 #Pulls all data relating to a food item search

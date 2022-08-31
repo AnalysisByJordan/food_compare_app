@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 
 
 @app.route("/")
@@ -46,6 +46,12 @@ def comparison():
       food2_dict = get_foods(session['food2'])
       food1_list = get_food_list(food1_dict)
       food2_list = get_food_list(food2_dict)
+      if len(food1_list) == 0:
+         flash(f"We couldn't find any results for '{session['food1']}', please try again")
+         return redirect('/')
+      if len(food2_list) == 0:
+         flash(f"We couldn't find any results for '{session['food2']}', please try again")
+         return redirect('/')
       if not (request.form.get('food1_select') and request.form.get('food1_select')):
          #logging.info(f"Setting reload_flag to True")
          food1_nutrients = get_food_nutrients(food1_dict, get_food_list(food1_dict)[0]['id'])
