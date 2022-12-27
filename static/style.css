@@ -1,18 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
 
 body {
     height: 100vh;
     width: 100vw;
     overflow-x: hidden;
     overflow-y: hidden;
-    font-family: 'Montserrat', serif;
+    font-family: 'Courier Prime', monospace;
 }
-.alert{
+
+.alert {
     color: red;
     text-align: center;
     margin-top: 20px;
     font-size: 2rem;
 }
-#grid-container { 
+
+#grid-container {
     position: fixed;
     left: 0;
     top: 0;
@@ -22,7 +25,8 @@ body {
     grid-template-columns: 100%;
     grid-template-rows: 5% 90% 5%;
 }
-#grid-nav{
+
+#grid-nav {
     grid-column-start: 1;
     grid-column-end: 1;
     grid-row-start: 1;
@@ -32,40 +36,54 @@ body {
     align-items: center;
     font-size: 1.5rem;
 }
+
 #grid-nav a {
     color: white;
     text-decoration: none;
     padding-left: 30px;
 }
-#about-section{
+
+#about-section {
     width: 100%;
+    color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
+
 #about-section h1 {
     font-size: 3rem;
+    color: white;
+    border-bottom: 3px solid rgb(255, 255, 255)
 }
+
 #about-section p {
-    font-size: 1.7rem;
+    font-size: 1.3rem;
+    color: white;
 }
-#about-text{
+
+#about-text {
     width: 80%;
     text-align: center;
 }
-#grid-nav a:hover{
-    color: rgb(240, 142, 62);
+
+#grid-nav a:hover {
+    color: rgb(192, 189, 189);
     transition-duration: 0.4s;
     cursor: pointer;
 }
-.content { 
+
+.content {
     height: 100%;
+    background-color: rgb(34, 34, 34);
 }
+
 form {
     height: 100%;
 }
-#title-div{
+
+#title-div {
     grid-column-start: 2;
     grid-column-end: 4;
     grid-row-start: 1;
@@ -76,22 +94,27 @@ form {
     justify-content: center;
     text-align: center;
 }
-#title-div h1{
+
+#title-div h1 {
     font-size: 3rem;
-    color: rgb(93, 134, 83);
+    color: rgb(255, 255, 255);
+    border-bottom: 3px solid rgb(255, 255, 255)
 }
-#title-div p{
+
+#title-div p {
     font-size: 1.7rem;
-    color: rgb(240, 142, 62);
+    color: rgb(255, 255, 255);
 }
-#grid-index{ 
+
+#grid-index {
     display: grid;
     height: 100%;
     width: 100%;
-    grid-template-columns: 20% 30% 30% 20%;
-    grid-template-rows: 33.33% 33.33% 33.33%;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 33.33% 15% 15%;
 }
-#food1-side{
+
+#food1-side {
     grid-column-start: 2;
     grid-column-end: 2;
     grid-row-start: 2;
@@ -101,12 +124,25 @@ form {
     align-items: center;
 }
 
-.food-select-input{
-    width: 100%;
-    font-size: 170%;
-    margin-bottom: 30%;
+.food-select-input {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #333333;
+    font-size: 16px;
+    padding: 12px;
+    width: 150%;
+    outline: none;
+    font-family: 'Courier Prime', monospace;
 }
-#food2-side{
+
+.food-select-input[type="text"]:focus {
+    outline: 2px solid #4caf50;
+    /* add a green outline when the input element is focused */
+}
+
+#food2-side {
     grid-column-start: 3;
     grid-column-end: 3;
     grid-row-start: 2;
@@ -115,13 +151,15 @@ form {
     justify-content: center;
     align-items: center;
 }
-.select-food-div{
+
+.select-food-div {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-#submit-div{
+
+#submit-div {
     grid-column-start: 2;
     grid-column-end: 4;
     grid-row-start: 3;
@@ -130,31 +168,38 @@ form {
     justify-content: center;
     align-items: center;
 }
-.submit-button{
-    background-color: #333;;
-    color: rgb(224, 213, 213);
-    padding: 10px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1.5rem;
-    margin: 4px 2px;
-    transition-duration: 0.4s;
+
+.submit-button[type="submit"] {
+    background-color: #daf8ce;
+    border: none;
+    color: #000000;
     cursor: pointer;
-    border-radius: 10px;
+    font-size: 16px;
+    padding: 12px 24px;
+    height: 30%;
+    width: 30%;
+    border-radius: 20px;
+    transition: background-color 0.5s;
 }
-.submit-button:hover {
-    background-color: rgb(240, 142, 62);
-    color: white;
-  }
-#grid-comparison{
+
+.submit-button[type="submit"]:hover {
+    background-color: #3e9d44;
+}
+
+.submit-button[type="submit"]:active {
+    background-color: #357a3f;
+}
+
+
+#grid-comparison {
     display: grid;
     height: 100%;
     width: 100%;
     grid-template-columns: 10% 40% 40% 10%;
     grid-template-rows: 25% 25% 5% 35% 10%;
 }
-#compare-title{
+
+#compare-title {
     grid-column-start: 2;
     grid-column-end: 4;
     grid-row-start: 1;
@@ -163,14 +208,18 @@ form {
     flex-direction: column;
     text-align: center;
 }
-#compare-title h1{
-    font-size: 2.7rem;
-    color: rgb(240, 142, 62);
+
+#compare-title h1 {
+    font-size: 3rem;
+    color: rgb(255, 255, 255);
 }
-#compare-title p{
-    font-size: 2rem;
+
+#compare-title p {
+    font-size: 1.7rem;
+    color: rgb(255, 255, 255);
 }
-#food1-box{
+
+#food1-box {
     grid-column-start: 2;
     grid-column-end: 2;
     grid-row-start: 2;
@@ -179,7 +228,8 @@ form {
     justify-content: center;
     align-items: center;
 }
-#food2-box{
+
+#food2-box {
     grid-column-start: 3;
     grid-column-end: 3;
     grid-row-start: 2;
@@ -188,12 +238,29 @@ form {
     justify-content: center;
     align-items: center;
 }
+
 .select-box {
     width: 80%;
-    height: 10%;
+    height: 20%;
     font-size: 1.2rem;
+    padding: 8px;
+    /* add padding */
+    color: black;
+    /* set the text color */
+    appearance: none;
+    /* remove the default appearance */
+    border: none;
+    /* remove the border */
+    font-family: 'Courier Prime', monospace;
+
 }
-#food1-nutrients{
+
+.select-box:focus {
+    outline: 2px solid #4caf50;
+    /* add a green outline when the input element is focused */
+}
+
+#food1-nutrients {
     grid-column-start: 2;
     grid-column-end: 2;
     grid-row-start: 4;
@@ -201,7 +268,8 @@ form {
     display: flex;
     justify-content: center;
 }
-#food2-nutrients{
+
+#food2-nutrients {
     grid-column-start: 3;
     grid-column-end: 3;
     grid-row-start: 4;
@@ -209,7 +277,8 @@ form {
     display: flex;
     justify-content: center;
 }
-#compare-submit{
+
+#compare-submit {
     grid-column-start: 2;
     grid-column-end: 4;
     grid-row-start: 3;
@@ -218,9 +287,10 @@ form {
     justify-content: center;
     align-items: center;
 }
-#compare-button{
-    background-color: #333;;
-    color: rgb(224, 213, 213);
+
+#compare-button {
+    background-color: #daf8ce;
+    color: rgb(0, 0, 0);
     padding: 16px 32px;
     text-align: center;
     text-decoration: none;
@@ -230,61 +300,77 @@ form {
     transition-duration: 0.4s;
     cursor: pointer;
 }
-#compare-button:hover {
-    background-color: rgb(240, 142, 62);
-    color: white;
-  }
 
-#nutritionfacts { 
-    background-color:white; 
-    border:1px solid black; 
-    padding:3px; width:244px; 
+#compare-button:hover {
+    background-color: #4caf50;
+    color: white;
 }
-#nutritionfacts td { 
-    color:black; 
-    font-family:'Arial Black','Helvetica Bold',sans-serif; 
-    font-size:8pt; 
-    padding:0; 
+
+#nutritionfacts {
+    background-color: white;
+    border: 1px solid black;
+    padding: 3px;
+    width: 244px;
 }
-#nutritionfacts td.header { 
-    font-family:'Arial Black','Helvetica Bold',sans-serif; 
-    font-size:28px; 
-    white-space:nowrap; 
-}        
-#nutritionfacts div.label { 
-    float:left; 
-    font-family:'Arial Black','Helvetica Bold',sans-serif; 
+
+#nutritionfacts td {
+    color: black;
+    font-family: 'Arial Black', 'Helvetica Bold', sans-serif;
+    font-size: 8pt;
+    padding: 0;
 }
-#nutritionfacts div.serving { 
-    font-family:Arial,Helvetica,sans-serif; 
-    font-size:8pt; 
-    text-align:center; 
+
+#nutritionfacts td.header {
+    font-family: 'Arial Black', 'Helvetica Bold', sans-serif;
+    font-size: 28px;
+    white-space: nowrap;
 }
-#nutritionfacts div.weight { 
-    display:inline; 
-    font-family:Arial,Helvetica,sans-serif; 
-    padding-left:1px; 
+
+#nutritionfacts div.label {
+    float: left;
+    font-family: 'Arial Black', 'Helvetica Bold', sans-serif;
 }
-#nutritionfacts div.dv { 
-    display:inline; 
-    float:right; 
-    font-family:'Arial Black','Helvetica Bold',sans-serif; 
+
+#nutritionfacts div.serving {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 8pt;
+    text-align: center;
 }
-#nutritionfacts table.vitamins td {  
-    font-family:Arial,Helvetica,sans-serif; 
-    white-space:nowrap; 
-    width:33%; 
+
+#nutritionfacts div.weight {
+    display: inline;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 1px;
 }
-#nutritionfacts div.line { 
-    border-top:1px solid black; 
+
+#nutritionfacts div.dv {
+    display: inline;
+    float: right;
+    font-family: 'Arial Black', 'Helvetica Bold', sans-serif;
 }
-#nutritionfacts div.labellight { 
-    float:left; 
-    font-family:Arial,Helvetica,sans-serif; 
+
+#nutritionfacts table.vitamins td {
+    font-family: Arial, Helvetica, sans-serif;
+    white-space: nowrap;
+    width: 33%;
 }
+
+#nutritionfacts div.line {
+    border-top: 1px solid black;
+}
+
+#nutritionfacts div.labellight {
+    float: left;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 #nutritionfacts .highlighted {
-    border:1px dotted grey;
-    padding:2px;
+    border: 1px dotted grey;
+    padding: 2px;
+}
+
+.disclaimer {
+    color: white
 }
 
 footer {
@@ -302,35 +388,47 @@ footer {
 }
 
 @media only screen and (max-width: 1000px) {
-    #grid-index{ 
+    #grid-index {
         display: grid;
         height: 100%;
         width: 100%;
         grid-template-columns: 20% 60% 20%;
-        grid-template-rows: 30% 20% 20% 30%;
+        grid-template-rows: 30% 10% 10% 10%;
     }
-    #title-div{
+
+    #grid-comparison {
+        display: grid;
+        height: 100%;
+        width: 100%;
+        grid-template-columns: 10% 40% 40% 10%;
+        grid-template-rows: 15% 15% 5% 25% 10%;
+    }
+
+    #title-div {
         grid-column-start: 2;
         grid-column-end: 2;
         grid-row-start: 1;
         grid-row-end: 2;
     }
-    #food1-side{
+
+    #food1-side {
         grid-column-start: 2;
         grid-column-end: 2;
         grid-row-start: 2;
         grid-row-end: 3;
     }
-    #food2-side{
+
+    #food2-side {
         grid-column-start: 2;
         grid-column-end: 2;
         grid-row-start: 3;
         grid-row-end: 4;
     }
-    #submit-div{
+
+    #submit-div {
         grid-column-start: 2;
         grid-column-end: 2;
         grid-row-start: 4;
         grid-row-end: 4;
     }
-  }
+}
