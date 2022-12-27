@@ -1,4 +1,4 @@
-# food_compare_app
+# Food Compare App
 Compares nutritional content between 2 food items.
 
 To run:
